@@ -1,0 +1,43 @@
+package org.test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class NewProject {
+
+	public static void main(String[] args) throws IOException {
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://demoqa.com/automation-practice-form/");
+		driver.manage().window().maximize();
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		File file = new File("C:\\Users\\DELL\\eclipse-workspace\\NewMavenProject\\TestData\\Database.xlsx");
+		FileInputStream fileInp = new FileInputStream(file);
+		Workbook wb = new XSSFWorkbook(fileInp);
+		Sheet sheet = wb.getSheetAt(1);
+		Row row = sheet.getRow(1);
+		int cellType = row.getCell(0).getCellType();
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
